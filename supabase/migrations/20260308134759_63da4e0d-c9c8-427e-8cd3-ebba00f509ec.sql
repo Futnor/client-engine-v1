@@ -1,0 +1,2 @@
+ALTER TABLE public.outreach_profiles ADD COLUMN IF NOT EXISTS platform text NOT NULL DEFAULT 'instagram';
+ALTER TABLE public.outreach_queue ADD COLUMN IF NOT EXISTS platform text NOT NULL DEFAULT 'instagram';

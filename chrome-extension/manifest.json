@@ -1,0 +1,97 @@
+{
+  "manifest_version": 3,
+  "name": "Client Engine",
+  "version": "2.4.158",
+  "description": "Automates DMs, comments & engagement on Instagram, TikTok & WhatsApp from your logged-in account.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "alarms",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://www.tiktok.com/*",
+    "https://web.whatsapp.com/*",
+    "https://*.supabase.co/*",
+    "https://futnor-dm-bot.lovable.app/*",
+    "https://*.lovable.app/*",
+    "https://*.lovableproject.com/*",
+    "https://futnormarketing.com/*",
+    "https://www.futnormarketing.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "instagram/content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.tiktok.com/*"
+      ],
+      "js": [
+        "tiktok/content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "whatsapp/content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://futnor-dm-bot.lovable.app/*",
+        "https://*.lovable.app/*",
+        "https://*.lovableproject.com/*",
+        "https://futnormarketing.com/*",
+        "https://www.futnormarketing.com/*"
+      ],
+      "js": [
+        "dashboard/loader.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://futnor-dm-bot.lovable.app/*",
+        "https://*.lovable.app/*",
+        "https://*.lovableproject.com/*",
+        "https://futnormarketing.com/*",
+        "https://www.futnormarketing.com/*"
+      ],
+      "js": [
+        "dashboard/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

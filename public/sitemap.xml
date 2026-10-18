@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url><loc>https://futnormarketing.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://futnormarketing.com/pricing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://futnormarketing.com/login</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://futnormarketing.com/support</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://futnormarketing.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://futnormarketing.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

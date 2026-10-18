@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Engine</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Consent Gate (shown until user accepts data disclosure) -->
+  <div class="consent-overlay" id="consentOverlay" style="display:none">
+    <div class="consent-card">
+      <h2>Data &amp; Privacy Disclosure</h2>
+      <p class="consent-lead">Before you use Client Engine, please review what this extension does with your data.</p>
+      <ul class="consent-list">
+        <li><strong>Reads public page content</strong> on Instagram, TikTok, and WhatsApp Web (profiles, posts, usernames, follower counts, captions) so the bot can find targets and perform the actions you configure.</li>
+        <li><strong>Sends DMs and posts comments</strong> from your logged-in account on your behalf using scripts you have configured.</li>
+        <li><strong>Stores activity locally</strong> (sessions, sent-DM history, settings) in Chrome storage on this device.</li>
+        <li><strong>Syncs activity stats</strong> (counts, timestamps, target usernames) to your Client Engine account to power your dashboard.</li>
+        <li><strong>Does not collect</strong> your private message inbox or conversation history, and never sells your data.</li>
+      </ul>
+      <p class="consent-foot">By clicking <strong>I Agree</strong> you consent to the data handling described above and in our <a href="https://futnor-dm-bot.lovable.app/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+      <div class="consent-actions">
+        <button class="btn-consent-decline" id="consentDecline">Decline</button>
+        <button class="btn-consent-accept" id="consentAccept">I Agree &amp; Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="icon"><img src="icons/icon48.png" alt="Client Engine" class="logo-img"></div>
+    <div class="header-info">
+      <h1>Client Engine</h1>
+      <p><span class="status-dot stopped" id="statusDot"></span><span id="statusText" class="bot-name" contenteditable="true" spellcheck="false" title="Click to rename your bot">My Bot</span></p>
+    </div>
+    <div class="tier-badge" id="tierBadge">FREE</div>
+  </div>
+
+  <!-- Subscription Banner -->
+  <div class="sub-banner" id="subBanner">
+    <div class="sub-banner-content">
+      <span class="sub-icon" id="subIcon">🔒</span>
+      <div class="sub-text">
+        <span class="sub-tier" id="subTierText">Free Plan</span>
+        <span class="sub-detail" id="subDetail">Upgrade to unlock all features</span>
+      </div>
+    </div>
+    <button class="sub-action-btn" id="subActionBtn">Upgrade</button>
+  </div>
+
+  <!-- Platform Selector -->
+  <div class="platform-selector">
+    <button class="platform-btn active instagram" id="platformIG">📸 Instagram</button>
+    <button class="platform-btn tiktok" id="platformTT">🎵 TikTok</button>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat primary"><div class="label">Scrolls</div><div class="value" id="scrolls">0</div></div>
+    <div class="stat success"><div class="label">Likes</div><div class="value" id="likes">0</div></div>
+    <div class="stat warning"><div class="label">Follows</div><div class="value" id="follows">0</div></div>
+    <div class="stat accent"><div class="label" id="dmLabel">DMs</div><div class="value" id="dms">0</div></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn-start" id="startBtn">▶ Start Session</button>
+    <button class="btn-stop" id="stopBtn" style="display:none">■ Stop</button>
+    <button class="btn-reset" id="resetBtn">↺</button>
+  </div>
+
+  <!-- Live Activity (always visible when running) -->
+  <div class="live-panel" id="livePanel" style="display:none">
+    <div class="live-header">
+      <span class="live-badge">LIVE</span>
+      <span class="live-title">Activity</span>
+    </div>
+    <div class="session-progress">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="progress-text" id="progressText">0:00 / 0:00</span>
+    </div>
+    <div class="logs" id="logContainer">
+      <div class="log-empty">Waiting for actions…</div>
+    </div>
+  </div>
+
+  <!-- Idle state hint -->
+  <div class="idle-hint" id="idleHint">
+    <p>Press <strong>Start Session</strong> to begin automating.</p>
+    <p>Configure targeting, AI outreach, and more on the full dashboard.</p>
+  </div>
+
+  <!-- Open Dashboard -->
+  <button class="btn-dashboard" id="dashboardBtn">⚙️ Open Full Dashboard ↗</button>
+
+  <!-- Privacy footer (always visible) -->
+  <div class="privacy-footer">
+    <span>🔒 This extension sends DMs &amp; comments on your behalf. It does not read your message inbox.</span>
+    <a href="https://futnor-dm-bot.lovable.app/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
